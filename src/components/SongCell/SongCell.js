@@ -2,15 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./SongCell.scss";
 
-const SongCell = ({ songData, setSelectedSong }) => {
-  // console.log("songData", songData);
+const SongCell = ({ songData, handleSongCellClick }) => {
   const playAudio = () => {
     // var audio = new Audio(songData.audio);
     // audio.play();
-    setSelectedSong(songData);
+    handleSongCellClick(songData.id);
   };
   return (
-    <div className="SongContainer" onClick={playAudio}>
+    <div
+      className={songData.active ? "SongContainerActive" : "SongContainer"}
+      onClick={playAudio}
+    >
       <div className="SongCellImageContainer">
         <img src={songData.cover} className="SongImage" alt={songData.cover} />
       </div>

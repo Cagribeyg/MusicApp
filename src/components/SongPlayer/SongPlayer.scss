@@ -1,6 +1,7 @@
 .SongPlayer {
     flex: 2;
-    background-color: blue;
+    background-color: #EAEAEA;
+    box-shadow: 13px 25px 81px 19px rgba(0,0,0,0.75);
     padding: 10px;
     align-items: stretch;
     margin: 0 auto;
@@ -40,11 +41,10 @@
     display: block;
 
 }
-.SongCellImageContainer {
-    width: 40%;
+.SongPlayerContainer {
+    width: 100%;
     float: left;
     text-align: center;
     justify-content: center;
     display: flex;
-
 }

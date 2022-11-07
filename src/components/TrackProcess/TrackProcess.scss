@@ -1,0 +1,30 @@
+.TrackProcessContainer {
+    width: 100%;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    height: 100px;
+    align-items: center;
+}
+
+.audio-track {
+    width: 350px;
+    height: 3px;
+    background-color: #dddddddd;
+    margin: 20px 0
+}
+ 
+.time {
+    width: 0;
+    height: 3px;
+    background-color: #474747
+}
+
+.currentTimeContainer {
+    width: 50px;
+}
+
+.totalDurationContainer {
+    width: 50px;
+}

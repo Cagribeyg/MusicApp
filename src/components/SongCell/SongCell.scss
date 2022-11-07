@@ -4,6 +4,19 @@
     padding: 10px;
     align-items: stretch;
     flex-direction: row;
+
+    .active {
+        background-color: gray;
+    }
+}
+
+.SongContainerActive {
+    height: 150px;
+    display: flex;
+    padding: 10px;
+    align-items: stretch;
+    flex-direction: row;
+    background-color: #95BAEB;
 }
 
 .SongCellTextontainer {

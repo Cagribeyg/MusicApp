@@ -1,9 +1,9 @@
 import React from "react";
 import "./Library.scss";
 import SongCell from "../SongCell/SongCell";
-import chillHop from "../../../data/data";
+import chillHop from "../../data/data";
 
-const Library = ({ setSelectedSong }) => {
+const Library = ({ handleSongCellClick }) => {
   return (
     <div className="Library">
       <div className="LibraryText">
@@ -11,7 +11,11 @@ const Library = ({ setSelectedSong }) => {
       </div>
       {chillHop.map((songData, i) => {
         return (
-          <SongCell setSelectedSong={setSelectedSong} songData={songData} />
+          <SongCell
+            key={i}
+            songData={songData}
+            handleSongCellClick={handleSongCellClick}
+          />
         );
       })}
     </div>
