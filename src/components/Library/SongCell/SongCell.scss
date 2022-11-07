@@ -1,0 +1,28 @@
+.SongContainer {
+    height: 150px;
+    display: flex;
+    padding: 10px;
+    align-items: stretch;
+    flex-direction: row;
+}
+
+.SongCellTextontainer {
+    width: 60%;
+    float: right;
+    margin: auto;
+}
+.SongImage{
+    width: 90px;
+    height: 90px;
+    margin: auto;
+    display: block;
+
+}
+.SongCellImageContainer {
+    width: 40%;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+
+}
