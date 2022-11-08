@@ -1,16 +1,25 @@
 import React from "react";
 import "./Library.scss";
 import SongCell from "../SongCell/SongCell";
-import chillHop from "../../data/data";
 import PropTypes from "prop-types";
 
-const Library = ({ handleSongCellClick }) => {
+const Library = ({
+  handleSongCellClick,
+  handleSearch,
+  musicList,
+  searchKey,
+}) => {
   return (
     <div className="Library">
       <div className="LibraryText">
         <p>Library</p>
       </div>
-      {chillHop.map((songData, i) => {
+      <input
+        onChange={(e) => handleSearch(e.target.value)}
+        placeholder="Search music"
+        className="search"
+      />
+      {musicList.map((songData, i) => {
         return (
           <SongCell
             key={i}
@@ -25,10 +34,12 @@ const Library = ({ handleSongCellClick }) => {
 
 Library.propTypes = {
   handleSongCellClick: PropTypes.func,
+  musicList: PropTypes.array,
 };
 
 Library.defaultProps = {
   handleSongCellClick: () => {},
+  musicList: [],
 };
 
 export default Library;

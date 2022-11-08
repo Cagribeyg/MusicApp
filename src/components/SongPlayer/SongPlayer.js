@@ -24,7 +24,8 @@ const SongPlayer = ({
           className="PlayerSongImage"
           alt={selectedSong.cover}
         />
-        <p>{selectedSong.artist}</p>
+        <p className="SongArtist">{selectedSong.artist}</p>
+        <p>{selectedSong.name}</p>
       </div>
       <div className="PlayerContainer">
         <p style={{ fontSize: "30px" }}>Player</p>
@@ -46,7 +47,7 @@ const SongPlayer = ({
             src={isPlaying ? pause : play}
             className="SongImage"
             alt={play}
-            onClick={() => playAndStopAudio(selectedSong)}
+            onClick={playAndStopAudio}
           />
           <img
             onClick={() => handleArrowClicks("next")}

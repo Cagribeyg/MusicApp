@@ -8,54 +8,59 @@ import { currentTimeConverter, getActiveIndex } from "./helper";
 
 const MusicPlayer = () => {
   const [selectedSong, setSelectedSong] = useState(chillHop[0]);
-  const [list, setList] = useState(chillHop);
+  const [musicList, setMusicList] = useState(chillHop);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [audio, SetAudio] = useState(new Audio(chillHop[0].audio));
+  const [audio, SetAudio] = useState(new Audio(selectedSong.audio));
   const [timeWidth, setTimeWidth] = useState();
   const [currentTime, setCurrentTime] = useState(0);
+  const [clickCount, setClickCount] = useState(0);
+  const [searchKey, setSearchKey] = useState("");
 
   var timer;
 
   const handleSongCellClick = (id) => {
     //Set active as selected in list
-    let tempList = [...list];
+    let tempList = [...musicList];
     tempList.forEach((song, i) => {
       if (song.id === id) {
         song.active = true;
         setSelectedSong(song);
       } else song.active = false;
     });
-    setList(tempList);
+    setMusicList(tempList);
     setIsPlaying(false);
-    //Reset player after switcing the new song
+    setClickCount(0);
     resetAudioProps();
     timer = null;
   };
 
   const handleArrowClicks = (key) => {
-    let activeIndex = getActiveIndex([...list]);
-    if (key === "prev" && activeIndex !== 0) {
-      setSelectedSong(list[activeIndex - 1]);
-      handleSongCellClick(list[activeIndex - 1].id);
-      //Reset player after switcing the new song
+    if (musicList.length > 0) {
+      let activeIndex = getActiveIndex([...musicList]);
+      if (key === "prev" && activeIndex !== 0) {
+        setSelectedSong(musicList[activeIndex - 1]);
+        handleSongCellClick(musicList[activeIndex - 1].id);
+      } else if (key === "next" && activeIndex !== musicList.length - 1) {
+        setSelectedSong(musicList[activeIndex + 1]);
+        handleSongCellClick(musicList[activeIndex + 1].id);
+      } else return;
+
+      setIsPlaying(false);
+      setClickCount(0);
       resetAudioProps();
-    } else if (key === "next" && activeIndex !== list.length - 1) {
-      setSelectedSong(list[activeIndex + 1]);
-      handleSongCellClick(list[activeIndex + 1].id);
-      //Reset player after switcing the new song
-      resetAudioProps();
-    } else return;
-    setIsPlaying(false);
+    }
   };
 
-  const changeAudioState = (selectedSong) => {
+  const changeAudioState = () => {
     setIsPlaying(!isPlaying);
+    setClickCount(clickCount + 1);
   };
 
   const stopAudio = () => {
     audio.pause();
   };
 
+  //Reset player after switcing the new song
   const resetAudioProps = () => {
     audio.pause();
     audio.currentTime = 0;
@@ -64,6 +69,11 @@ const MusicPlayer = () => {
 
   useEffect(() => {
     if (audio) {
+      //Means new song is selected
+      if (clickCount === 0) {
+        audio.src = selectedSong.audio;
+        audio.load();
+      }
       if (isPlaying) {
         audio.play(selectedSong.audio);
         timer = setInterval(function () {
@@ -77,11 +87,31 @@ const MusicPlayer = () => {
         stopAudio();
       }
     }
-  }, [audio, selectedSong, isPlaying]);
+  }, [audio, selectedSong, isPlaying, clickCount]);
+
+  const handleSearch = (searchKey) => {
+    setSearchKey(searchKey);
+    //If nothing typed, restore the list
+    if (searchKey === "") {
+      setMusicList(chillHop);
+    } else {
+      setMusicList(
+        [...musicList].filter(
+          (song) =>
+            song.artist.includes(searchKey) || song.name.includes(searchKey)
+        )
+      );
+    }
+  };
 
   return (
     <div className="App">
-      <Library handleSongCellClick={handleSongCellClick} />
+      <Library
+        handleSongCellClick={handleSongCellClick}
+        handleSearch={handleSearch}
+        musicList={musicList}
+        searchKey={searchKey}
+      />
       <SongPlayer
         handleArrowClicks={handleArrowClicks}
         selectedSong={selectedSong}
@@ -90,6 +120,7 @@ const MusicPlayer = () => {
         timeWidth={timeWidth}
         totalDuration={Math.round(audio.duration)}
         currentTime={currentTimeConverter(currentTime)}
+        setClickCount={setClickCount}
       />
     </div>
   );

@@ -10,5 +10,21 @@
         margin: 0 auto;
         justify-content: center;
     }
+    .search {
+        height: 40px;
+        width: 50%;
+        border: none;
+        background-color: #f1f3f6;
+        -webkit-border-radius: 500px;
+        -moz-border-radius: 500px;
+        border-radius: 500px;
+        padding: 0 25px;
+        -o-text-overflow: ellipsis!important;
+        text-overflow: ellipsis!important;
+        white-space: nowrap!important;
+        overflow: hidden!important;
+        margin-left: 90px;
+        margin-bottom: 30px;
+    }
 }
 
