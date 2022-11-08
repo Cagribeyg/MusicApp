@@ -3,13 +3,10 @@ import PropTypes from "prop-types";
 import "./SongCell.scss";
 
 const SongCell = ({ songData, handleSongCellClick }) => {
-  const playAudio = () => {
-    handleSongCellClick(songData.id);
-  };
   return (
     <div
       className={songData.active ? "SongContainer active" : "SongContainer"}
-      onClick={playAudio}
+      onClick={() => handleSongCellClick(songData.id)}
     >
       <div className="SongCellImageContainer">
         <img src={songData.cover} className="SongImage" alt={songData.cover} />

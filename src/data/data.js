@@ -61,6 +61,25 @@ const chillHop = [
     id: uuidv4(),
     active: false,
   },
-  //ADD MORE HERE
+  {
+    name: "Roses n Flames",
+    cover:
+      "https://chillhop.com/wp-content/uploads/2021/02/d12927eedcc2f5afba2ab049a4a1ea46c2266ae3-1024x1024.jpg",
+    artist: "C Y G N",
+    audio: "https://mp3.chillhop.com/serve.php/?mp3=14984",
+    color: ["#5D8AC0", "#E999F7"],
+    id: uuidv4(),
+    active: true,
+  },
+  {
+    name: "Slim Bobby",
+    artist: "Aviino",
+    cover:
+      "https://chillhop.com/wp-content/uploads/2020/10/23fdd99adc3e16abcb67b004ea3e748ebf433a49-1024x1024.jpg",
+    id: uuidv4(),
+    active: false,
+    color: ["#599CDD", "#EE8998"],
+    audio: "https://mp3.chillhop.com/serve.php/?mp3=10448",
+  },
 ];
 export default chillHop;

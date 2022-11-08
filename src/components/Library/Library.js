@@ -3,12 +3,7 @@ import "./Library.scss";
 import SongCell from "../SongCell/SongCell";
 import PropTypes from "prop-types";
 
-const Library = ({
-  handleSongCellClick,
-  handleSearch,
-  musicList,
-  searchKey,
-}) => {
+const Library = ({ handleSongCellClick, handleSearch, musicList }) => {
   return (
     <div className="Library">
       <div className="LibraryText">

@@ -17,7 +17,10 @@ const SongPlayer = ({
   currentTime,
 }) => {
   return (
-    <div className="SongPlayer">
+    <div
+      className="SongPlayer"
+      style={{ backgroundColor: selectedSong.color[0] }}
+    >
       <div className="infoContainer">
         <img
           src={selectedSong.cover}

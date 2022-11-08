@@ -110,7 +110,6 @@ const MusicPlayer = () => {
         handleSongCellClick={handleSongCellClick}
         handleSearch={handleSearch}
         musicList={musicList}
-        searchKey={searchKey}
       />
       <SongPlayer
         handleArrowClicks={handleArrowClicks}
