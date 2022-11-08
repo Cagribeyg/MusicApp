@@ -5,6 +5,7 @@ import play from "../../assets/images/play.png";
 import rightArrow from "../../assets/images/right-arrow.png";
 import pause from "../../assets/images/pause.png";
 import TrackProcess from "../TrackProcess/TrackProcess";
+import PropTypes from "prop-types";
 
 const SongPlayer = ({
   selectedSong,
@@ -32,7 +33,6 @@ const SongPlayer = ({
           currentTime={currentTime}
           timeWidth={timeWidth}
           totalDuration={totalDuration}
-          key={selectedSong.id}
         />
 
         <div className="SongPlayerContainer">
@@ -58,6 +58,26 @@ const SongPlayer = ({
       </div>
     </div>
   );
+};
+
+SongPlayer.propTypes = {
+  handleArrowClicks: PropTypes.func,
+  playAndStopAudio: PropTypes.func,
+  selectedSong: PropTypes.object,
+  isPlaying: PropTypes.bool,
+  totalDuration: PropTypes.number,
+  currentTime: PropTypes.string,
+  timeWidth: PropTypes.string,
+};
+
+SongPlayer.defaultProps = {
+  handleArrowClicks: () => {},
+  playAndStopAudio: () => {},
+  selectedSong: {},
+  isPlaying: false,
+  totalDuration: 0,
+  currentTime: "00:00",
+  timeWidth: "0%",
 };
 
 export default SongPlayer;

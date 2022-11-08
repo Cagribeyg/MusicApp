@@ -2,6 +2,7 @@ import React from "react";
 import "./Library.scss";
 import SongCell from "../SongCell/SongCell";
 import chillHop from "../../data/data";
+import PropTypes from "prop-types";
 
 const Library = ({ handleSongCellClick }) => {
   return (
@@ -20,6 +21,14 @@ const Library = ({ handleSongCellClick }) => {
       })}
     </div>
   );
+};
+
+Library.propTypes = {
+  handleSongCellClick: PropTypes.func,
+};
+
+Library.defaultProps = {
+  handleSongCellClick: () => {},
 };
 
 export default Library;

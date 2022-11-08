@@ -5,18 +5,9 @@
     align-items: stretch;
     flex-direction: row;
 
-    .active {
-        background-color: gray;
+    &.active {
+        background-color: #95BAEB;
     }
-}
-
-.SongContainerActive {
-    height: 150px;
-    display: flex;
-    padding: 10px;
-    align-items: stretch;
-    flex-direction: row;
-    background-color: #95BAEB;
 }
 
 .SongCellTextontainer {
@@ -24,18 +15,20 @@
     float: right;
     margin: auto;
 }
-.SongImage{
-    width: 90px;
-    height: 90px;
-    margin: auto;
-    display: block;
 
-}
 .SongCellImageContainer {
     width: 40%;
     float: left;
     text-align: center;
     justify-content: center;
     display: flex;
+
+    .SongImage{
+        width: 90px;
+        height: 90px;
+        margin: auto;
+        display: block;
+    
+    }
 
 }

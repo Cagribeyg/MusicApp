@@ -3,7 +3,6 @@ import { secondsToMinutesSeconds } from "../../helper";
 import "./TrackProcess.scss";
 
 const TrackProcess = ({ timeWidth, totalDuration, currentTime }) => {
-  console.log("timeWidth", timeWidth);
   return (
     <div className="TrackProcessContainer">
       <div className="currentTimeContainer">

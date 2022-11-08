@@ -5,17 +5,17 @@
     padding: 10px;
     align-items: stretch;
     margin: 0 auto;
+    .infoContainer {
+        height:50%; 
+        width:100%;
+        padding:10px;
+        text-align: center;
+        justify-content: center;
+        display: block;
+        margin: auto;
+    }
 }
 
-.infoContainer {
-    height:50%; 
-    width:100%;
-    padding:10px;
-    text-align: center;
-    justify-content: center;
-    display: block;
-    margin: auto;
-}
 .PlayerSongImage{
     width: 300px;
     height: 300px;
@@ -32,19 +32,20 @@
     justify-content: center;
     display: block;
     margin: auto;
+
+    .SongImage{
+        width: 90px;
+        height: 90px;
+        margin: auto;
+        display: block;
+    
+    }
+    .SongPlayerContainer {
+        width: 100%;
+        float: left;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+    }
 }
 
-.SongImage{
-    width: 90px;
-    height: 90px;
-    margin: auto;
-    display: block;
-
-}
-.SongPlayerContainer {
-    width: 100%;
-    float: left;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-}

@@ -4,13 +4,11 @@ import "./SongCell.scss";
 
 const SongCell = ({ songData, handleSongCellClick }) => {
   const playAudio = () => {
-    // var audio = new Audio(songData.audio);
-    // audio.play();
     handleSongCellClick(songData.id);
   };
   return (
     <div
-      className={songData.active ? "SongContainerActive" : "SongContainer"}
+      className={songData.active ? "SongContainer active" : "SongContainer"}
       onClick={playAudio}
     >
       <div className="SongCellImageContainer">
@@ -22,6 +20,16 @@ const SongCell = ({ songData, handleSongCellClick }) => {
       </div>
     </div>
   );
+};
+
+SongCell.propTypes = {
+  songData: PropTypes.object,
+  handleSongCellClick: PropTypes.func,
+};
+
+SongCell.defaultProps = {
+  songData: {},
+  handleSongCellClick: () => {},
 };
 
 export default SongCell;
