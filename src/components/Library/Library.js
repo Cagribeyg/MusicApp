@@ -14,15 +14,16 @@ const Library = ({ handleSongCellClick, handleSearch, musicList }) => {
         placeholder="Search music"
         className="search"
       />
-      {musicList.map((songData, i) => {
-        return (
-          <SongCell
-            key={i}
-            songData={songData}
-            handleSongCellClick={handleSongCellClick}
-          />
-        );
-      })}
+      {musicList &&
+        musicList.map((songData, i) => {
+          return (
+            <SongCell
+              key={i}
+              songData={songData}
+              handleSongCellClick={handleSongCellClick}
+            />
+          );
+        })}
     </div>
   );
 };
